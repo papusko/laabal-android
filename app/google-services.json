@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "777629674119",
+    "firebase_url": "https://laabal.firebaseio.com",
+    "project_id": "laabal",
+    "storage_bucket": "laabal.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:777629674119:android:5fe232400d92bfb3",
+        "android_client_info": {
+          "package_name": "com.africa.cloud.laabal"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "777629674119-65vqu97lhd3q0214p4jks4slv6aso2sk.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyDr5by_QAGDiMEkjrPMwfvm_YZwGJYrVzg"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "777629674119-65vqu97lhd3q0214p4jks4slv6aso2sk.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

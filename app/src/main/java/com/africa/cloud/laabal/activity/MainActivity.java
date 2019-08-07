@@ -119,8 +119,8 @@ public class MainActivity extends AppCompatActivity implements HomeFragment.OnFr
      */
     private void loadNavHeader() {
         // name, website
-        txtName.setText("Ravi Tamada");
-        txtWebsite.setText("www.androidhive.info");
+        txtName.setText("Lâabal");
+        txtWebsite.setText("site: www.laabal.e-monsite.com");
 
         // loading header background image
         Glide.with(this).load(urlNavHeaderBg)
@@ -268,6 +268,11 @@ public class MainActivity extends AppCompatActivity implements HomeFragment.OnFr
                     case R.id.nav_privacy_policy:
                         // launch new intent instead of loading fragment
                         startActivity(new Intent(MainActivity.this, PrivacyPolicyActivity.class));
+                        drawer.closeDrawers();
+                        return true;
+                    case R.id.nav_clients:
+
+                        startActivity(new Intent(MainActivity.this, ClientsActivity.class));
                         drawer.closeDrawers();
                         return true;
                     default:

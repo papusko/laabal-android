@@ -34,7 +34,16 @@
                 android:title= "A propos de lâabal" />
             <item
                 android:id="@+id/nav_privacy_policy"
-                android:title="Politique d'utilisation" />
+                android:title="Les promoteurs" />
+
+            <item
+                android:id="@+id/nav_clients"
+                android:icon="@drawable/ic_person_black_24dp"
+                android:title="Espace clients" />
+
+            <item
+                android:id="@+id/nav_admin"
+                android:title="Espace administrateurs" />
         </menu>
     </item>
 
