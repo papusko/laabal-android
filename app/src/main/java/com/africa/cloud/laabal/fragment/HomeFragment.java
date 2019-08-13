@@ -1,14 +1,26 @@
 package com.africa.cloud.laabal.fragment;
 
+import android.app.Activity;
 import android.content.Context;
+import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
 
 import com.africa.cloud.laabal.R;
+import com.africa.cloud.laabal.activity.AboutUsActivity;
+import com.africa.cloud.laabal.activity.CritiqueActivity;
+import com.africa.cloud.laabal.activity.InscriptionClientsActivity;
+import com.africa.cloud.laabal.activity.NewsActivity;
+import com.africa.cloud.laabal.activity.PrivacyPolicyActivity;
+import com.africa.cloud.laabal.activity.ReclamationActivity;
+import com.africa.cloud.laabal.activity.SuggestionActivity;
+import com.africa.cloud.laabal.activity.ZonesActivity;
+import com.africa.cloud.laabal.models.Reclamation;
 
 
 /**
@@ -24,6 +36,8 @@ public class HomeFragment extends Fragment  {
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
+
+    Activity context;
 
     // TODO: Rename and change types of parameters
     private String mParam1;
@@ -65,8 +79,10 @@ public class HomeFragment extends Fragment  {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
+        context=getActivity();
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_home, container, false);
+
     }
 
     // TODO: Rename method, update argument and hook method into UI event
@@ -93,11 +109,111 @@ public class HomeFragment extends Fragment  {
     }
 
 
+
+
     @Override
     public void onDetach() {
         super.onDetach();
         mListener = null;
     }
+
+    public void onStart(){
+        super.onStart();
+        TextView noti=(TextView) context.findViewById(R.id.notification);
+        noti.setOnClickListener(new View.OnClickListener(){
+            public void onClick(View view){
+
+                Intent intent=new Intent(context, InscriptionClientsActivity.class);
+                startActivity(intent);
+            }
+
+        });
+
+
+        TextView inscription = (TextView) context.findViewById(R.id.inscrire);
+        inscription.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent inscription = new Intent(context,InscriptionClientsActivity.class);
+                startActivity(inscription);
+            }
+        });
+
+        TextView zones = (TextView) context.findViewById(R.id.zones);
+        zones.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent zone = new Intent(context, ZonesActivity.class);
+                startActivity(zone);
+            }
+        });
+
+
+        TextView reclams = (TextView) context.findViewById(R.id.reclamation);
+        reclams.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent reclam = new Intent(context, ReclamationActivity.class);
+                startActivity(reclam);
+            }
+        });
+
+
+        TextView criti = (TextView) context.findViewById(R.id.critique);
+        criti.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent crit = new Intent(context, CritiqueActivity.class);
+                startActivity(crit);
+            }
+        });
+
+
+        TextView sug = (TextView) context.findViewById(R.id.suggestion);
+        sug.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent sugger = new Intent(context, SuggestionActivity.class);
+                startActivity(sugger);
+            }
+        });
+
+
+        TextView prom = (TextView) context.findViewById(R.id.promoteurs);
+        prom.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent promo = new Intent(context, PrivacyPolicyActivity.class);
+                startActivity(promo);
+
+            }
+        });
+
+        TextView propos = (TextView) context.findViewById(R.id.laabal);
+        propos.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent laabal = new Intent(context, AboutUsActivity.class);
+                startActivity(laabal);
+            }
+        });
+
+
+        TextView nouve = (TextView) context.findViewById(R.id.nouveaute);
+        nouve.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent news = new Intent(context, NewsActivity.class);
+                startActivity(news);
+            }
+        });
+
+    }
+
+
 
     /**
      * This interface must be implemented by activities that contain this

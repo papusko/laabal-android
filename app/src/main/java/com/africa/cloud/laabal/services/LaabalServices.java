@@ -3,6 +3,7 @@ package com.africa.cloud.laabal.services;
 import com.africa.cloud.laabal.models.Clients;
 import com.africa.cloud.laabal.models.Critique;
 import com.africa.cloud.laabal.models.Reclamation;
+import com.africa.cloud.laabal.models.Suggestion;
 import com.paydunya.neptune.PaydunyaCheckoutStore;
 import com.paydunya.neptune.PaydunyaOnsiteInvoice;
 import com.paydunya.neptune.PaydunyaSetup;
@@ -37,7 +38,12 @@ public interface LaabalServices {
                                    @Field("objets") String objets);
 
 
-
+    @POST("suggestion/")
+    @FormUrlEncoded
+    Call<Suggestion> saveSuggestion(@Field("nom") String nom,
+                                     @Field("prenom") String prenom,
+                                     @Field("telephone") String telephone,
+                                     @Field("objets") String objets);
 
 
 

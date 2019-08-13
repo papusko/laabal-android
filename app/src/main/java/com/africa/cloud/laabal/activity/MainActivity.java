@@ -43,8 +43,6 @@ public class MainActivity extends AppCompatActivity implements HomeFragment.OnFr
     private ImageView imgNavHeaderBg, imgProfile;
     private TextView txtName, txtWebsite;
     private Toolbar toolbar;
-    private FloatingActionButton fab;
-
     // urls to load navigation header background image
     // and profile image
     private static final String urlNavHeaderBg = "https://api.androidhive.info/images/nav-menu-header-bg.jpg";
@@ -100,7 +98,7 @@ public class MainActivity extends AppCompatActivity implements HomeFragment.OnFr
 
         drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
         navigationView = (NavigationView) findViewById(R.id.nav_view);
-       fab = (FloatingActionButton) findViewById(R.id.fab);
+       //fab = (FloatingActionButton) findViewById(R.id.fab);
 
         // Navigation view header
         navHeader = navigationView.getHeaderView(0);
@@ -112,13 +110,13 @@ public class MainActivity extends AppCompatActivity implements HomeFragment.OnFr
         // load toolbar titles from string resources
         activityTitles = getResources().getStringArray(R.array.nav_item_activity_titles);
 
-        fab.setOnClickListener(new View.OnClickListener() {
+        /*fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
             }
-        });
+        });*/
 
         // load nav menu header data
         loadNavHeader();
@@ -158,7 +156,7 @@ public class MainActivity extends AppCompatActivity implements HomeFragment.OnFr
                 .into(imgProfile);
 
         // showing dot next to notifications label
-        navigationView.getMenu().getItem(3).setActionView(R.layout.menu_dot);
+        navigationView.getMenu().getItem(2).setActionView(R.layout.menu_dot);
     }
 
     /***
@@ -178,7 +176,7 @@ public class MainActivity extends AppCompatActivity implements HomeFragment.OnFr
             drawer.closeDrawers();
 
             // show or hide the fab button
-            toggleFab();
+            //toggleFab();
             return;
         }
 
@@ -205,7 +203,7 @@ public class MainActivity extends AppCompatActivity implements HomeFragment.OnFr
         }
 
         // show or hide the fab button
-        toggleFab();
+        //toggleFab();
 
         //Closing drawer on item click
         drawer.closeDrawers();
@@ -265,18 +263,7 @@ public class MainActivity extends AppCompatActivity implements HomeFragment.OnFr
                         navItemIndex = 0;
                         CURRENT_TAG = TAG_HOME;
                         break;
-                    case R.id.nav_photos:
-                        navItemIndex = 1;
-                        CURRENT_TAG = TAG_PHOTOS;
-                        break;
-                    case R.id.nav_movies:
-                        navItemIndex = 2;
-                        CURRENT_TAG = TAG_MOVIES;
-                        break;
-                    case R.id.nav_notifications:
-                        navItemIndex = 3;
-                        CURRENT_TAG = TAG_NOTIFICATIONS;
-                        break;
+
                     case R.id.nav_settings:
                         navItemIndex = 4;
                         CURRENT_TAG = TAG_SETTINGS;
@@ -406,12 +393,12 @@ public class MainActivity extends AppCompatActivity implements HomeFragment.OnFr
     }
 
     // show or hide the fab
-    private void toggleFab() {
+ /*   private void toggleFab() {
         if (navItemIndex == 0)
             fab.show();
         else
             fab.hide();
-    }
+    }*/
 
     @Override
     public void onFragmentInteraction(Uri uri) {

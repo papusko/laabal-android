@@ -10,7 +10,7 @@ import android.widget.Toast;
 
 import com.africa.cloud.laabal.R;
 import com.africa.cloud.laabal.models.Critique;
-import com.africa.cloud.laabal.models.Reclamation;
+import com.africa.cloud.laabal.models.Suggestion;
 import com.africa.cloud.laabal.services.LaabalServices;
 
 import retrofit2.Call;
@@ -19,23 +19,25 @@ import retrofit2.Response;
 import retrofit2.Retrofit;
 import retrofit2.converter.gson.GsonConverterFactory;
 
-public class CritiqueActivity extends AppCompatActivity {
+public class SuggestionActivity extends AppCompatActivity {
 
-    private static final String TAG = "poubelle" ;
-    EditText edit1, edit2, edit3;
+
+    private static final String TAG = "suggestion" ;
+    EditText edit1, edit2, edit3, edit4;
     Button inscrire;
-    String nom, prenom, objets;
-
+    String nom, prenom, telephone, objet;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_critique);
+        setContentView(R.layout.activity_suggestion);
 
         edit1 = (EditText) findViewById(R.id.nom);
         edit2 = (EditText) findViewById(R.id.prenom);
-        edit2 = (EditText) findViewById(R.id.telephone);
+        edit3 =(EditText) findViewById(R.id.telephone);
+        edit3 =(EditText) findViewById(R.id.adresse);
         inscrire = (Button) findViewById(R.id.enregistrer);
+
 
         inscrire.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -43,25 +45,25 @@ public class CritiqueActivity extends AppCompatActivity {
 
                 nom = edit1.getText().toString();
                 prenom = edit2.getText().toString();
-                objets = edit3.getText().toString();
-                if (nom.isEmpty()| prenom.isEmpty()| objets.isEmpty())
+                telephone = edit2.getText().toString();
+                objet = edit3.getText().toString();
+
+
+                if (nom.isEmpty()| prenom.isEmpty()| telephone.isEmpty() | objet.isEmpty())
                 {
                     Toast.makeText(getApplicationContext(), "Veuillez remplir tout les champs", Toast.LENGTH_SHORT).show();
                 }else {
 
 
-                    sendPost(nom,prenom,objets);
-
+                    sendPost(nom,prenom,telephone,objet);
 
                 }
 
-
             }
         });
-
     }
 
-    private void sendPost(String nom, String prenom, String objets) {
+    private void sendPost(String nom, String prenom, String telephone, String objet) {
 
         Retrofit retrofit = new Retrofit.Builder()
                 .baseUrl("http://192.168.1.211:8000/api/")
@@ -70,9 +72,9 @@ public class CritiqueActivity extends AppCompatActivity {
 
         LaabalServices user = retrofit.create(LaabalServices.class);
 
-        user.saveCritique(nom,prenom,objets).enqueue(new Callback<Critique>() {
+        user.saveSuggestion(nom,prenom,telephone,objet).enqueue(new Callback<Suggestion>() {
             @Override
-            public void onResponse(Call<Critique> call, Response<Critique> response) {
+            public void onResponse(Call<Suggestion> call, Response<Suggestion> response) {
 
 
                 if(response.isSuccessful()) {
@@ -83,16 +85,16 @@ public class CritiqueActivity extends AppCompatActivity {
                 Toast.makeText(getApplicationContext(), response.code()+"", Toast.LENGTH_SHORT).show();
             }
 
+            @Override
+            public void onFailure(Call<Suggestion> call, Throwable t) {
+                Toast.makeText(getApplicationContext(), "Echecs d'enregistrement revoir le code"+t, Toast.LENGTH_SHORT).show();
+            }
+
             private void showResponse(String toString) {
 
 
             }
 
-            @Override
-            public void onFailure(Call<Critique> call, Throwable t) {
-                Toast.makeText(getApplicationContext(), "Echecs d'enregistrement revoir le code"+t, Toast.LENGTH_SHORT).show();
-
-            }
         });
 
 
