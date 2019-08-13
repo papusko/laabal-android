@@ -22,7 +22,7 @@ import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
-
+import com.paydunya.neptune.*;
 import com.africa.cloud.laabal.R;
 import com.africa.cloud.laabal.fragment.HomeFragment;
 import com.africa.cloud.laabal.fragment.MoviesFragment;
@@ -32,6 +32,8 @@ import com.africa.cloud.laabal.fragment.SettingsFragment;
 import com.africa.cloud.laabal.other.CircleTransform;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.load.engine.DiskCacheStrategy;
+import com.paydunya.neptune.PaydunyaCheckoutStore;
+import com.paydunya.neptune.PaydunyaSetup;
 
 public class MainActivity extends AppCompatActivity implements HomeFragment.OnFragmentInteractionListener, MoviesFragment.OnFragmentInteractionListener, NotificationsFragment.OnFragmentInteractionListener, PhotosFragment.OnFragmentInteractionListener, SettingsFragment.OnFragmentInteractionListener {
 
@@ -70,6 +72,25 @@ public class MainActivity extends AppCompatActivity implements HomeFragment.OnFr
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
+
+
+        PaydunyaSetup setup = new PaydunyaSetup();
+        setup.setMasterKey("Wa6mFZ9O-YESm-zyDd-RU10-yZMY4QHUtRj3");
+        setup.setPrivateKey("test_private_SKccgd2N79FH31IXAPhUuh4VfTd");
+        setup.setPublicKey("test_public_s3W6hHt8zPWgwMRO7c8kF3S97lp");
+        setup.setToken("ixex7Kk0pfHhqCIl7cgc");
+        setup.setMode("test"); // Optionnel. Utilisez cette option pour les paiements tests.
+
+
+        //Configuration des informations de votre service/entreprise
+        PaydunyaCheckoutStore store = new PaydunyaCheckoutStore();
+        store.setName("Lâabal"); // Seul le nom est requis
+        store.setTagline("Vivez sainement");
+        store.setPhoneNumber("779682002");
+        store.setPostalAddress("Dakar HLM - Grand yoff");
+        store.setWebsiteUrl("http://www.laabal.e-monsite.com");
+
+        PaydunyaOnsiteInvoice invoice = new PaydunyaOnsiteInvoice(setup, store);
 
 
         toolbar = (Toolbar) findViewById(R.id.toolbar);

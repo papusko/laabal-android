@@ -5,7 +5,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.CardView;
 import android.view.View;
-
+import com.paydunya.neptune.*;
 import com.africa.cloud.laabal.R;
 
 public class ClientsActivity extends AppCompatActivity {
@@ -15,6 +15,11 @@ public class ClientsActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_clients);
+
+
+
+
+
 
         inscription = (CardView) findViewById(R.id.bankcardId2);
         reclamation = (CardView) findViewById(R.id.bankcardId3);
@@ -48,5 +53,12 @@ public class ClientsActivity extends AppCompatActivity {
             }
         });
 
+
+
+
     }
+
+
+
+
 }
