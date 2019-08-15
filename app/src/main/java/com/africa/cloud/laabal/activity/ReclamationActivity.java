@@ -80,7 +80,7 @@ public class ReclamationActivity extends AppCompatActivity {
 
                 if(response.isSuccessful()) {
                     showResponse(response.body().toString());
-                    Log.i(TAG, "Reclamation soumit avec succès." + response.body().toString());
+                    Log.i(TAG, "Reclamation soumit avec succès. vous serez contacter par un administrateur" + response.body().toString());
                 }
 
                 Toast.makeText(getApplicationContext(), response.code()+"", Toast.LENGTH_SHORT).show();

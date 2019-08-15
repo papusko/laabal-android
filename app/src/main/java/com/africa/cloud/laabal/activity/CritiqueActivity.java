@@ -34,7 +34,7 @@ public class CritiqueActivity extends AppCompatActivity {
 
         edit1 = (EditText) findViewById(R.id.nom);
         edit2 = (EditText) findViewById(R.id.prenom);
-        edit2 = (EditText) findViewById(R.id.telephone);
+        edit3 = (EditText) findViewById(R.id.critique);
         inscrire = (Button) findViewById(R.id.enregistrer);
 
         inscrire.setOnClickListener(new View.OnClickListener() {
@@ -80,7 +80,7 @@ public class CritiqueActivity extends AppCompatActivity {
                     Log.i(TAG, "Critique  soumit à l'administration lerci pour votre confiance." + response.body().toString());
                 }
 
-                Toast.makeText(getApplicationContext(), response.code()+"", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getApplicationContext(), "critique soumi avec succès vous serez bientot contacter par un administrateur", Toast.LENGTH_SHORT).show();
             }
 
             private void showResponse(String toString) {

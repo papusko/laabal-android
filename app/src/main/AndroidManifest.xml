@@ -11,7 +11,8 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".activity.NewsActivity"></activity>
+        <activity android:name=".activity.NotificationsActivity"></activity>
+        <activity android:name=".activity.NewsActivity" />
         <activity android:name=".activity.SuggestionActivity" />
         <activity android:name=".activity.ZonesActivity" />
         <activity android:name=".CamionsActivity" />

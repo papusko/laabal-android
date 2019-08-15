@@ -81,7 +81,7 @@ public class InscriptionClientsActivity extends AppCompatActivity {
 
                 if(response.isSuccessful()) {
                     showResponse(response.body().toString());
-                    Log.i(TAG, "Enregistré avec succès." + response.body().toString());
+                    Log.i(TAG, "Vous êtes enregistré avec succès. un administrateur vous contactera au plus vite" + response.body().toString());
                 }
 
                 Toast.makeText(getApplicationContext(), response.code()+"", Toast.LENGTH_SHORT).show();

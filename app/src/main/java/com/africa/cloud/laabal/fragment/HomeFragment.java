@@ -9,6 +9,7 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.africa.cloud.laabal.R;
@@ -16,6 +17,7 @@ import com.africa.cloud.laabal.activity.AboutUsActivity;
 import com.africa.cloud.laabal.activity.CritiqueActivity;
 import com.africa.cloud.laabal.activity.InscriptionClientsActivity;
 import com.africa.cloud.laabal.activity.NewsActivity;
+import com.africa.cloud.laabal.activity.NotificationsActivity;
 import com.africa.cloud.laabal.activity.PrivacyPolicyActivity;
 import com.africa.cloud.laabal.activity.ReclamationActivity;
 import com.africa.cloud.laabal.activity.SuggestionActivity;
@@ -123,7 +125,7 @@ public class HomeFragment extends Fragment  {
         noti.setOnClickListener(new View.OnClickListener(){
             public void onClick(View view){
 
-                Intent intent=new Intent(context, InscriptionClientsActivity.class);
+                Intent intent=new Intent(context, NotificationsActivity.class);
                 startActivity(intent);
             }
 
@@ -208,6 +210,94 @@ public class HomeFragment extends Fragment  {
             public void onClick(View v) {
                 Intent news = new Intent(context, NewsActivity.class);
                 startActivity(news);
+            }
+        });
+
+
+        ImageView im1 = (ImageView) context.findViewById(R.id.image1);
+        im1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                Intent notif= new Intent(context, NotificationsActivity.class);
+                startActivity(notif);
+            }
+        });
+
+
+
+        ImageView im2 = (ImageView) context.findViewById(R.id.image2);
+        im2.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent ins = new Intent(context,InscriptionClientsActivity.class);
+                startActivity(ins);
+            }
+        });
+
+        ImageView im3 = (ImageView) context.findViewById(R.id.image3);
+        im3.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent zon = new Intent(context,ZonesActivity.class);
+                startActivity(zon);
+            }
+        });
+
+        ImageView im4 = (ImageView) context.findViewById(R.id.image4);
+        im4.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent re = new Intent(context, ReclamationActivity.class);
+                startActivity(re);
+            }
+        });
+
+        ImageView im5 = (ImageView) context.findViewById(R.id.image5);
+        im5.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent cr = new Intent(context,CritiqueActivity.class);
+                startActivity(cr);
+            }
+        });
+
+
+        ImageView im6 = (ImageView) context.findViewById(R.id.image6);
+        im6.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent sug = new Intent(context, SuggestionActivity.class);
+                startActivity(sug);
+            }
+        });
+
+
+        ImageView im7 = (ImageView) context.findViewById(R.id.image7);
+        im7.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent pr = new Intent(context, PrivacyPolicyActivity.class);
+                startActivity(pr);
+            }
+        });
+
+        ImageView im8 = (ImageView) context.findViewById(R.id.image8);
+        im8.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent apropos = new Intent(context, AboutUsActivity.class);
+                startActivity(apropos);
+            }
+        });
+
+
+        ImageView im9 = (ImageView) context.findViewById(R.id.image9);
+        im9.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent nouv = new Intent(context, NewsActivity.class);
+                startActivity(nouv);
             }
         });
 
